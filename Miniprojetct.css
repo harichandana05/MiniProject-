@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registration Form</title>
+  <link rel="stylesheet" href="Miniproject.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="form-box">
+      <h2>Create Account</h2>
+      <form id="registrationForm">
+        <div class="row">
+          <div class="form-group">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="fname" required />
+          </div>
+          <div class="form-group">
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lname" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+
+        <div class="row">
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required />
+          </div>
+          <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="dob">Date of Birth</label>
+          <input type="date" id="dob" name="dob" required />
+        </div>
+
+        <div class="form-group">
+          <label>Gender</label>
+          <div class="gender">
+            <label><input type="radio" name="gender" value="Male" required /> Male</label>
+            <label><input type="radio" name="gender" value="Female" /> Female</label>
+            <label><input type="radio" name="gender" value="Other" /> Other</label>
+          </div>
+        </div>
+
+        <div class="form-group checkbox">
+          <input type="checkbox" id="terms" name="terms" required />
+          <label for="terms">I accept the Terms & Conditions</label>
+        </div>
+
+        <button type="submit">Register</button>
+      </form>
+
+      <div id="successMessage" class="success-message">🎉 Registration Successful!</div>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('registrationForm');
+    const successMessage = document.getElementById('successMessage');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const pwd = document.getElementById('password').value;
+      const cpwd = document.getElementById('confirmPassword').value;
+      if (pwd !== cpwd) {
+        alert('Passwords do not match!');
+        return;
+      }
+      form.style.display = 'none';
+      successMessage.style.display = 'block';
+    });
+  </script>
+</body>
+</html>
